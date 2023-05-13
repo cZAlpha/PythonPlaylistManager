@@ -39,16 +39,21 @@ def playListManager(songIndex):
 
     # If statement for skipping forward
     if (userInput == "A" or userInput == "a"):
-        # TO DO
-        pass
+        # Checks if you're at the end of the playlistm, if you are then it sets you to the beginning of the playlist
+        if (internalSongIndex == len(songList) - 1):
+            internalSongIndex = 0
+        else:
+            internalSongIndex += 1
     # If statement for skipping backwards
     elif (userInput == "B" or userInput == "b"):
-        # TO DO
-        pass
+        # Checks if you're at the beginning of the playlist, if you are then it sets you to the end of the playlist
+        if (internalSongIndex == 0):
+            internalSongIndex = len(songList) - 1
+        else:
+            internalSongIndex -= 1
     # If statement for shuffling
     elif (userInput == "C" or userInput == "c"):
-        # TO DO
-        pass
+        internalSongIndex = random.randint(0, len(songList) - 1)
     # Else statement to catch bad user inputs
     else:
         clearTerminal()
